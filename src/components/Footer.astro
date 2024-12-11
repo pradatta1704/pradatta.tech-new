@@ -1,0 +1,27 @@
+---
+import SocialLinks from './footer/SocialLinks.astro';
+import FooterNav from './footer/FooterNav.astro';
+---
+
+<footer class="bg-white dark:bg-gray-900 py-12 mt-20 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-accent/5"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">About</h3>
+        <p class="text-gray-600 dark:text-gray-400">
+          Cloud & DevOps Engineer passionate about building scalable infrastructure and automating deployments. Based in Bengaluru, specializing in AWS and container technologies.
+        </p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <FooterNav />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="300">
+        <SocialLinks />
+      </div>
+    </div>
+    <div class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center text-gray-600 dark:text-gray-400">
+      <p>&copy; {new Date().getFullYear()} Pradatta Praharaj. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

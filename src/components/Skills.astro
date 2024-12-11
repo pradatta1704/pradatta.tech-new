@@ -1,0 +1,40 @@
+---
+const skills = [
+  {
+    category: 'Cloud & Infrastructure',
+    items: ['AWS', 'Cloud Architecture', 'IAM', 'EC2', 'S3', 'RDS', 'Lambda']
+  },
+  {
+    category: 'DevOps & Automation',
+    items: ['Docker', 'Kubernetes', 'CI/CD', 'Infrastructure as Code', 'Monitoring']
+  },
+  {
+    category: 'Certifications & Tools',
+    items: ['RedHat Certified Engineer', 'Git', 'Jenkins', 'Terraform', 'Linux', 'Bash Scripting']
+  }
+];
+---
+
+<section class="py-20 bg-white dark:bg-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center mb-12 dark:text-white" data-aos="fade-up">
+      Technical Skills
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {skills.map((skillSet) => (
+        <div 
+          class="p-6 bg-gray-50 dark:bg-gray-900 rounded-lg shadow-sm"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <h3 class="text-xl font-semibold mb-4 dark:text-white">{skillSet.category}</h3>
+          <ul class="space-y-2">
+            {skillSet.items.map((skill) => (
+              <li class="text-gray-600 dark:text-gray-400">{skill}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

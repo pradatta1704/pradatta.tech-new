@@ -1,0 +1,55 @@
+---
+const projects = [
+  {
+    title: 'AWS Infrastructure Automation',
+    description: 'Automated AWS infrastructure deployment using Terraform and GitHub Actions.',
+    tags: ['AWS', 'Terraform', 'IaC', 'GitHub Actions'],
+    image: '/images/projects/aws-automation.jpg'
+  },
+  {
+    title: 'Container Orchestration',
+    description: 'Kubernetes cluster setup and management with monitoring and logging.',
+    tags: ['Kubernetes', 'Docker', 'Prometheus', 'Grafana'],
+    image: '/images/projects/kubernetes.jpg'
+  },
+  {
+    title: 'CI/CD Pipeline',
+    description: 'Implemented robust CI/CD pipelines for microservices architecture.',
+    tags: ['Jenkins', 'Docker', 'AWS', 'Microservices'],
+    image: '/images/projects/cicd.jpg'
+  }
+];
+---
+
+<section class="py-20 bg-white dark:bg-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center mb-12 dark:text-white" data-aos="fade-up">
+      Featured Projects
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {projects.map(project => (
+        <div 
+          class="bg-gray-50 dark:bg-gray-900 rounded-lg overflow-hidden shadow-sm"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+              {project.title}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              {project.description}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {project.tags.map(tag => (
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

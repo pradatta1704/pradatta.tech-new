@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    title: 'AWS Infrastructure Automation',
+    description: 'Automated AWS infrastructure deployment using Terraform and GitHub Actions. Implemented IaC practices for scalable and maintainable cloud infrastructure.',
+    tags: ['AWS', 'Terraform', 'GitHub Actions', 'IaC'],
+    link: '#',
+    image: '/images/projects/aws.jpg'
+  },
+  {
+    title: 'Container Orchestration Platform',
+    description: 'Designed and implemented Kubernetes clusters for microservices deployment. Set up monitoring and logging using Prometheus and ELK stack.',
+    tags: ['Kubernetes', 'Docker', 'Prometheus', 'ELK'],
+    link: '#',
+    image: '/images/projects/kubernetes.jpg'
+  },
+  {
+    title: 'CI/CD Pipeline Implementation',
+    description: 'Built robust CI/CD pipelines using Jenkins and GitHub Actions. Automated testing, building, and deployment processes for multiple applications.',
+    tags: ['Jenkins', 'GitHub Actions', 'Docker', 'AWS'],
+    link: '#',
+    image: '/images/projects/cicd.jpg'
+  }
+];
+---
+
+<Layout title="Projects - Cloud Engineer Portfolio">
+  <main class="min-h-screen py-32 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-center mb-12 dark:text-white" data-aos="fade-up">
+        Featured Projects
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+          <div 
+            class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
+          >
+            <div class="aspect-w-16 aspect-h-9">
+              <img 
+                src={project.image} 
+                alt={project.title}
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-3 dark:text-white">{project.title}</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.tags.map(tag => (
+                  <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <a 
+                href={project.link}
+                class="inline-block bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>

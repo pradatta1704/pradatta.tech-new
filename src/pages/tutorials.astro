@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tutorials = [
+  {
+    title: 'AWS EC2 Instance Setup',
+    description: 'Learn how to launch and configure an EC2 instance in AWS',
+    videoUrl: 'https://youtube.com/embed/your-video-id',
+    tags: ['AWS', 'EC2', 'Cloud']
+  },
+  {
+    title: 'Docker Container Basics',
+    description: 'Understanding Docker containers and basic commands',
+    videoUrl: 'https://youtube.com/embed/your-video-id',
+    tags: ['Docker', 'Containers', 'DevOps']
+  },
+  {
+    title: 'Kubernetes Deployment Guide',
+    description: 'Step-by-step guide to deploying applications on Kubernetes',
+    videoUrl: 'https://youtube.com/embed/your-video-id',
+    tags: ['Kubernetes', 'DevOps', 'Container Orchestration']
+  }
+];
+---
+
+<Layout title="Tutorials - Cloud Engineer Portfolio">
+  <main class="min-h-screen py-32 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-center mb-12 dark:text-white" data-aos="fade-up">
+        Video Tutorials
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {tutorials.map((tutorial) => (
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden" data-aos="fade-up">
+            <div class="aspect-w-16 aspect-h-9">
+              <iframe
+                src={tutorial.videoUrl}
+                title={tutorial.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                class="w-full h-full"
+              ></iframe>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 dark:text-white">{tutorial.title}</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">{tutorial.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {tutorial.tags.map((tag) => (
+                  <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>

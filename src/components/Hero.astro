@@ -1,0 +1,52 @@
+---
+import CVPopup from './CVPopup.astro';
+---
+
+<section class="min-h-screen flex items-center justify-center bg-background-light dark:bg-background-dark text-gray-800 dark:text-white relative overflow-hidden py-20 px-4">
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
+      <div class="text-center md:text-left max-w-2xl" data-aos="fade-right">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent tracking-tight">
+          Pradatta Praharaj
+        </h1>
+        <p class="text-xl sm:text-2xl text-secondary/80 mb-8">
+          Cloud & DevOps Engineer
+        </p>
+        <div class="text-base sm:text-lg mb-8 space-y-2 text-gray-600 dark:text-gray-300">
+          <p>Based in Bengaluru, India</p>
+          <p>RedHat Certified Engineer</p>
+          <p>Specializing in AWS Cloud Infrastructure</p>
+          <p>Actively learning Kubernetes and Docker</p>
+        </div>
+        <div class="flex flex-wrap justify-center md:justify-start gap-4">
+          <a
+            href="/contact"
+            class="w-full sm:w-auto bg-secondary text-background-dark px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-secondary/20 text-center"
+          >
+            Get in Touch
+          </a>
+          <a
+            href="/projects"
+            class="w-full sm:w-auto border border-secondary/30 hover:border-secondary/60 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg text-center"
+          >
+            View Projects
+          </a>
+          <button
+            onclick="openCVPopup('/cv.pdf')"
+            class="w-full sm:w-auto bg-accent text-background-dark px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent/20 text-center"
+          >
+            CV
+          </button>
+        </div>
+      </div>
+      <div class="w-48 h-48 md:w-72 md:h-72 relative" data-aos="fade-left">
+        <img
+          src="/images/pradatta.jpg"
+          alt="Pradatta Praharaj"
+          class="w-full h-full object-cover rounded-full border-4 border-secondary/50 p-1"
+        />
+      </div>
+    </div>
+  </div>
+  <CVPopup />
+</section>

@@ -1,0 +1,94 @@
+---
+import CertificationPopup from './CertificationPopup.astro';
+
+const certifications = [
+  {
+    title: 'RedHat Certified System Administrator (RHCSA)',
+    issuer: 'Red Hat',
+    date: 'January 2024',
+    image: '/images/certifications/rhcsa.png',
+    link: '/images/certifications/rhcsa-full.png',
+    description: 'Linux system administration and configuration certification'
+  },
+  {
+    title: 'RedHat Certified Engineer (RHCE)',
+    issuer: 'Red Hat',
+    date: 'January 2025',
+    image: '/images/certifications/rhcsa.png',
+    link: '/images/certifications/rhcsa-full.png',
+    description: 'Linux system administration and configuration certification'
+  },
+  {
+    title: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    date: 'January 2025',
+    image: '/images/certifications/aws-ccp.png',
+    link: '/images/certifications/aws-ccp-full.png',
+    description: 'Comprehensive understanding of AWS Cloud concepts and services'
+  },
+  {
+    title: 'Certified Kubernetes Administrator (CKA)',
+    issuer: 'Cloud Native Computing Foundation',
+    date: 'April 2025',
+    image: '/images/certifications/cka.png',
+    link: '/images/certifications/cka-full.png',
+    description: 'Installation, configuration and management of production-grade Kubernetes clusters'
+  }
+  
+];
+---
+
+<section class="py-20 bg-white dark:bg-gray-800 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <h2 
+      class="text-3xl font-bold text-center mb-12 dark:text-white"
+      data-aos="fade-up"
+    >
+      Professional Certifications
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {certifications.map((cert, index) => (
+        <div 
+          class="bg-gray-50 dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="p-6">
+            <div class="h-16 w-16 mb-4 mx-auto">
+              <img 
+                src={cert.image} 
+                alt={cert.title}
+                class="w-full h-full object-contain cursor-pointer"
+                onclick={`openCertificationPopup('${cert.link}')`}
+              />
+            </div>
+            <h3 class="text-xl font-semibold text-center mb-2 dark:text-white">
+              {cert.title}
+            </h3>
+            <div class="text-center mb-4">
+              <p class="text-secondary font-medium">{cert.issuer}</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">{cert.date}</p>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 text-center mb-4">
+              {cert.description}
+            </p>
+            <div class="text-center">
+              <button
+                onclick={`openCertificationPopup('${cert.link}')`}
+                class="inline-flex items-center text-accent hover:text-accent/80 transition-colors"
+              >
+                View Certificate
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<CertificationPopup />

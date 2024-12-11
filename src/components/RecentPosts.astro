@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import PostCard from './blog/PostCard.astro';
+
+const posts = await getCollection('blog');
+const recentPosts = posts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<section class="py-20 bg-background-light dark:bg-background-dark relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white" data-aos="fade-up">
+      Recent Blog Posts
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {recentPosts.map(post => <PostCard post={post} />)}
+    </div>
+    <div class="text-center mt-12" data-aos="fade-up">
+      <a
+        href="/blog"
+        class="inline-block bg-secondary text-background-dark px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-secondary/20 font-medium"
+      >
+        View All Posts
+      </a>
+    </div>
+  </div>
+
+  <!-- Animated background elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/2 left-0 w-72 h-72 bg-secondary/5 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full mix-blend-multiply filter blur-xl animate-float" style="animation-delay: -2s"></div>
+  </div>
+</section>
